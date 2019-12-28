@@ -47,7 +47,7 @@ Usage
 
         OSCAR_ORDER_STATUS_PIPELINE = {
             'Aguardando pagamento': ('Paga', u'Em analíse', 'Cancelada'),
-            u'Em analíse': ('Paga', 'Cancelada'),
+            u'Em análise': ('Paga', 'Cancelada'),
             'Paga': ('Em disputa', 'Devolvida', u'Disponível', 'Cancelada'),
             u'Disponível': ('Devolvida', 'Em disputa'),
             'Em disputa': (u'Disponível', 'Devolvida', 'Paga'),

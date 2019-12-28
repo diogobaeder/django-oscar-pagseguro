@@ -13,7 +13,7 @@ def aguardando(sender, transaction, **kwargs):
 
 def em_analise(sender, transaction, **kwargs):
     order = Order.objects.get(number=transaction['reference'])
-    order.set_status(u'Em analíse')
+    order.set_status(u'Em análise')
     order.save()
 
 
