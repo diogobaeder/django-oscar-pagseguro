@@ -2,16 +2,16 @@ import re
 from setuptools import setup, find_packages
 
 
-version = None
 with open('oscar_pagseguro/__init__.py', 'r') as fd:
-        version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-                            fd.read(), re.MULTILINE).group(1)
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+                        fd.read(), re.MULTILINE).group(1)
 
 setup(
     name='django-oscar-pagseguro',
     version=version,
     url='https://github.com/daneoshiga/django-oscar-pagseguro',
-    download_url='https://github.com/daneoshiga/django-oscar-pagseguro/tarball/0.0.2',
+    download_url='https://github.com/daneoshiga/django-oscar-pagseguro'
+                 '/tarball/0.0.2',
     author="Danilo Shiga",
     author_email="daniloshiga@gmail.com",
     description="Pagseguro integration paypal",

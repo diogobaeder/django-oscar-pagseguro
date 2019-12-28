@@ -16,7 +16,8 @@ class SuccessResponseView(PaymentDetailsView):
     def handle_payment(self, order_number, total, **kwargs):
         """Handles a payment related to pagseguro"""
 
-        source_type, __ = models.SourceType.objects.get_or_create(name="Pagseguro")
+        source_type, __ = models.SourceType.objects.get_or_create(
+            name="Pagseguro")
 
         source = models.Source(source_type=source_type,
                                amount_allocated=total.incl_tax,
@@ -33,10 +34,11 @@ class SuccessResponseView(PaymentDetailsView):
         pagseguro_api = PagSeguroApi(reference=reference)
 
         for line in order.lines.all():
-            item = PagSeguroItem(id=line.pk,
-                                 description=line.description,
-                                 amount='{0:.2f}'.format(line.stockrecord.price_excl_tax),
-                                 quantity=line.quantity)
+            item = PagSeguroItem(
+                id=line.pk,
+                description=line.description,
+                amount='{0:.2f}'.format(line.stockrecord.price_excl_tax),
+                quantity=line.quantity)
             pagseguro_api.add_item(item)
 
         data = pagseguro_api.checkout()
