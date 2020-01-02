@@ -4,14 +4,14 @@ from django.urls import *
 from .views import SuccessResponseView
 
 urlpatterns = [
-    path(r'^preview/(?P<basket_id>\d+)/$',
+    path('preview/<int:basket_id>/',
          SuccessResponseView.as_view(preview=True),
          name='pagseguro-success-response'),
-    path(r'^checkout/payment-details/$',
+    path('checkout/payment-details/',
          SuccessResponseView.as_view(preview=True),
          name='pagseguro-success-response'),
-    path(r'^checkout/preview/$',
+    path('checkout/preview/',
          SuccessResponseView.as_view(preview=True),
          name='pagseguro-success-response'),
-    path(r'^retorno/pagseguro/', include('pagseguro.urls')),
+    path('retorno/pagseguro/', include('pagseguro.urls')),
 ]
